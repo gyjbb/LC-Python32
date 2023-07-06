@@ -2,7 +2,7 @@
 Dynamic planning 1
 
 
-## 
+## Theory, 509.Fibonacci Number, 70.Climbing Stairs
 July 05, 2023  4h
 
 Congratulations!\
@@ -11,16 +11,30 @@ The challenges today are especially about ~~categorizing the situation into diff
 
 
 ## Theory
+DP array dp[i][j] and meaning of indexes, hook formula, initialization, order of iterration, print the dp array. These are the 5 steps of dynamic planning. 
 
 
+## 509.Fibonacci Number
+```python
+class Solution:
+    def fib(self, n: int) -> int:
+        if n == 0:
+            return 0
+        dp = [0] * (n+1)        #create dp table
+        dp[0] = 0       #initialize dp array
+        dp[1] = 1       
+        for i in range(2, n+1):     #the order of iteration
+            dp[i] = dp[i-1] + dp[i-2]       #the hook formula
 
-##  509. 
-斐波那契数 很简单的动规入门题，但简单题使用来掌握方法论的，还是要有动规五部曲来分析。
+        return dp[n]        #return the result
+```
 
 
+## 70.Climbing Stairs
+This question is similar to the fibonacci number.
+```python
 
-##  70. 
-爬楼梯 本题大家先自己想一想， 之后会发现，和 斐波那契数 有点关系。
+```
 
 
 ## 746. 
