@@ -2,7 +2,7 @@
 Dynamic planning 1
 
 
-## Theory, 509.Fibonacci Number, 70.Climbing Stairs
+## Theory, 509.Fibonacci Number, 70.Climbing Stairs, 746.Min Cost Climbing Stairs
 July 05, 2023  4h
 
 Congratulations!\
@@ -49,6 +49,20 @@ class Solution:
 ```
 
 
-## 746. 
-使用最小花费爬楼梯 这道题目力扣改了题目描述了，现在的题目描述清晰很多，相当于明确说 第一步是不用花费的。 更改题目描述之后，相当于是 文章中 「拓展」的解法 
+## 746.Min Cost Climbing Stairs
+The first step cost nothing. To reach the next step, it costs costs[i]. \
+We define dp[i] as the minimum cost to reach step i. So dp[i] can either be dp[i-1]+cost[i-1] or dp[i-2]+cost[i-2] since we can walk one/two steps per time. Then we get the minimum of the two solutions for dp[i].\
+Attention here, dp[0] is 0, and dp[1] is also 0, because the question said we can start from either step 0 or step 1, and jumping to these two steps takes no effort, and with no cost. But jumping from 0/1 step to 2 or higher steps will have costs.
+```python
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        dp = [0] * (len(cost)+1)
+        dp[0] = 0
+        dp[0] = 0
+
+        for i in range(2, len(cost)+1):   
+            dp[i] = dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+        
+        return dp[len(cost)]        #return the minimum cost to reach the top
+```
 
